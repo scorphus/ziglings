@@ -22,7 +22,6 @@ pub fn main() void {
 fn addTwenty(n: u32) MyNumberError!u32 {
     if (n < 5) {
         return MyNumberError.TooSmall;
-    } else {
-        return n + 20;
     }
+    return n + 20;
 }
