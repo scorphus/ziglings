@@ -32,12 +32,15 @@ fn printPowersOfTwo(numbers: [4]u16) void {
 // of the standard library!
 //
 fn twoToThe(number: u16) u16 {
-    var n: u16 = 0;
-    var total: u16 = 1;
-
-    while (n < number) : (n += 1) {
-        total *= 2;
+    if (number < 1) {
+        return 1;
     }
-
-    return total;
+    if (number < 2) {
+        return 2;
+    }
+    var total = twoToThe(number / 2);
+    if (number % 2 == 0) {
+        return total * total;
+    }
+    return total * total * 2;
 }
